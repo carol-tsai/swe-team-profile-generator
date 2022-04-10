@@ -1,13 +1,7 @@
 const Employee = require("../lib/Employee");
 
-// Tests to write
-// create employee positive and negative
-// Test getName positive and negative
-// Test getId positive and negative
-// Test getEmail positive and negative
-// Test getRole positice and negative
 describe("Employee", () => {
-   // TODO: Add a comment describing the purpose of the following test suite
+   // This test suite will test that the Employee constructor and methods work
    describe("Initialization", () => {
       it("should create a new employee object", () => {
          const newEmployee = new Employee('Sam', '2', 'sam@gmail.com');
