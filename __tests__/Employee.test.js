@@ -9,28 +9,29 @@ const Employee = require("../lib/Employee");
 describe("Employee", () => {
    // TODO: Add a comment describing the purpose of the following test suite
    describe("Initialization", () => {
-      // TODO: Test if can instantiate Employee positive
-      it("should create an object with a 'text' property set to the 'text' argument provided when called with the 'new' keyword", () => {
-         // Arrange
-         const text = 'Pick up milk';
-
-         // Act
-         const obj = new Todo(text);
-
-         // Assert
-         expect(obj.text).toEqual(text);
+      it("should create a new employee object", () => {
+         const newEmployee = new Employee('Sam', '2', 'sam@gmail.com');
+         expect(typeof(newEmployee)).toBe("object");
       });
-
-      // TODO: Test if can instantiate Employee negavtive
-      it("should create an object with a 'text' property set to the 'text' argument provided when called with the 'new' keyword", () => {
-         // Arrange
-         const text = 'Pick up milk';
-
-         // Act
-         const obj = new Todo(text);
-
-         // Assert
-         expect(obj.text).toEqual(text);
-      });
+   });
+   it("should return a name when getName() is called", () => {
+      const newEmployee = new Employee('Sam', 2, 'sam@gmail.com');
+      const name = 'Sam';
+      expect(newEmployee.getName()).toEqual(name);
+   });
+   it("should return an id when getId() is called", () => {
+      const newEmployee = new Employee('Sam', 2, 'sam@gmail.com');
+      const id = 2;
+      expect(newEmployee.getId()).toEqual(id);
+   });
+   it("should return 'Employee' when getRole() is called", () => {
+      const newEmployee = new Employee('Sam', '2', 'sam@gmail.com');
+      const role = 'Employee';
+      expect(newEmployee.getRole()).toEqual(role);
+   });
+   it("should return an email when getEmail() is called", () => {
+      const newEmployee = new Employee('Sam', '2', 'sam@gmail.com');
+      const email = 'sam@gmail.com';
+      expect(newEmployee.getEmail()).toEqual(email);
    });
 });

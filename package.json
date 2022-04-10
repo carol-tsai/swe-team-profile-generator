@@ -5,10 +5,10 @@
   "main": "index.js",
   "directories": {
     "lib": "lib",
-    "test": "tests"
+    "test": "__tests__"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/carol-tsai/team-profile-generator/issues"
   },
-  "homepage": "https://github.com/carol-tsai/team-profile-generator#readme"
+  "homepage": "https://github.com/carol-tsai/team-profile-generator#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+  
 }
