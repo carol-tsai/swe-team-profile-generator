@@ -25,7 +25,7 @@
 
   When you are finished adding your team members' info, an html file will be generated in the 'dist' folder, containing a formatted team profile webpage.
 
-  Walkthrough video
+  [Link to walkthrough video](https://drive.google.com/file/d/11Y3c3nQ5BhxJF-5Zz8mj6jptRlawKGI0/view?usp=sharing)
 
 
   ## License
