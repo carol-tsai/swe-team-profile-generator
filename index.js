@@ -113,12 +113,14 @@ function addTeamMates() {
                .then(response => {
                   const newEngineer = new Engineer(response.name, response.id, response.email, response.github);
                   writeEngineer();
+                  addTeamMates();
                })
          } else if (response.member === "Intern") {
             inquirer.prompt(internq)
                .then(response => {
                   const newIntern = new Intern(response.name, response.id, response.email, response.school);
                   writeIntern();
+                  addTeamMates();
                })
          } else {
             finishHTML();
@@ -151,7 +153,7 @@ function writeEngineer(engineer) {
    return;
 }
 
-function writeInter(intern) {
+function writeIntern(intern) {
    return;
 }
 
