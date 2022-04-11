@@ -172,7 +172,7 @@ function writeManager(manager) {
             <h6 class = "card-subtitle">Manager</h6>
             <ul class="list-group list-group-flush">
                <li class="list-group-item">ID: ${manager.id}</li>
-               <li class="list-group-item">email: ${manager.email}</li>
+               <li class="list-group-item">email: <a href = "mailto: ${manager.email}">${manager.email}</a></li>
                <li class="list-group-item">office number: ${manager.office}</li>
             </ul>
          </div>
@@ -194,8 +194,8 @@ function writeEngineer(engineer) {
             <h6 class="card-subtitle">Engineer</h6>
             <ul class="list-group list-group-flush">
                <li class="list-group-item">ID: ${engineer.id}</li>
-               <li class="list-group-item">email: ${engineer.email}</li>
-               <li class="list-group-item">github: ${engineer.github}</li>
+               <li class="list-group-item">email: <a href = "mailto: ${engineer.email}">${engineer.email}</a></li>
+               <li class="list-group-item">github: <a href = "https://github.com/${engineer.github}">${engineer.github}</a></li>
             </ul>
          </div>
       </div>`;
@@ -214,7 +214,7 @@ function writeIntern(intern) {
             <h6 class="card-subtitle">Intern</h6>
             <ul class="list-group list-group-flush">
                <li class="list-group-item">ID: ${intern.id}</li>
-               <li class="list-group-item">email: ${intern.email}</li>
+               <li class="list-group-item">email: <a href = "mailto: ${intern.email}">${intern.email}</a></li>
                <li class="list-group-item">school: ${intern.school}</li>
             </ul>
          </div>
@@ -236,6 +236,7 @@ function finishHTML() {
          console.log(err);
       }
    })
+   console.log('Generated team profile page, output is in the dist folder');
 }
 
 makeTeam();
