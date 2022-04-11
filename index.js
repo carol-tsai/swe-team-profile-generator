@@ -8,7 +8,6 @@ const Manager = require('./lib/Manager');
 const { ADDRGETNETWORKPARAMS } = require('dns');
 
 // Questions for user input
-//todo write this
 const managerq = [
    {
       type: 'input',
@@ -32,7 +31,6 @@ const managerq = [
    },
 ];
 
-//todo write this
 const engineerq = [
    {
       type: 'input',
@@ -56,7 +54,6 @@ const engineerq = [
    },
 ];
 
-//todo write this
 const internq = [
    {
       type: 'input',
@@ -80,7 +77,6 @@ const internq = [
    },
 ];
 
-//todo write this
 // Function that takes in user input and returns a manger object
 function addManager() {
    inquirer.prompt(managerq)
@@ -88,15 +84,10 @@ function addManager() {
          const newManager = new Manager(response.name, response.id, response.email, response.office)
          writeManager(newManager);
          addTeamMates();
-
-         // let team = [newManager];
-         // const restOfTeam = addTeamMates();
-         // team.concat(restOfTeam);
       })
    return;
 }
 
-//todo write this
 // Function that takes in used input and returns and array of intern and engineer objects
 function addTeamMates() {
    inquirer.prompt([
@@ -112,14 +103,16 @@ function addTeamMates() {
             inquirer.prompt(engineerq)
                .then(response => {
                   const newEngineer = new Engineer(response.name, response.id, response.email, response.github);
-                  writeEngineer();
+                  //team.push(newEngineer);
+                  writeEngineer(newEngineer);
                   addTeamMates();
                })
          } else if (response.member === "Intern") {
             inquirer.prompt(internq)
                .then(response => {
                   const newIntern = new Intern(response.name, response.id, response.email, response.school);
-                  writeIntern();
+                  //team.push(newIntern)
+                  writeIntern(newIntern);
                   addTeamMates();
                })
          } else {
@@ -128,10 +121,10 @@ function addTeamMates() {
       })
 }
 
-//todo write this
 // Takes in user input, returns an array of employee objects
 function makeTeam() {
    console.log('Please build your team 👥')
+   startHTML();
    let team = [];
    const manager = addManager();
    //console.log(manager);
@@ -139,8 +132,7 @@ function makeTeam() {
    //team.concat(teamMates);
 }
 
-//todo write this
-// Function that takes in an array of Employees and writes an HTML file
+// Function that takes in an array of Employees and starts to write an HTML file
 function startHTML() {
    const data = `
    <!DOCTYPE html>
@@ -164,9 +156,14 @@ function startHTML() {
    <section class="container">
       <section class="row justify-content-center">
    `
-   fs.appendFile('./dist/team.html', data);
+   return fs.appendFile('./dist/team.html', data, (err) => {
+      if (err) {
+         console.log(err);
+      } 
+   });
 }
 
+// Function that appends a manager card to the html file
 function writeManager(manager) {
    const data = `
        <div class="card m-2" style="width: 18rem;">
@@ -181,9 +178,14 @@ function writeManager(manager) {
          </div>
       </div>
    `;
-   fs.appendFile('./dist/team.html', data);
+   fs.appendFile('./dist/team.html', data, (err) => {
+      if (err) {
+         console.log(err);
+      } 
+   });
 }
 
+// Function that appends a engineer card to the html file
 function writeEngineer(engineer) {
    const data = `
          <div class="card m-2" style="width: 18rem;">
@@ -197,9 +199,14 @@ function writeEngineer(engineer) {
             </ul>
          </div>
       </div>`;
-   fs.appendFile('./dist/team.html', data);
+   fs.appendFile('./dist/team.html', data, (err) => {
+      if (err) {
+         console.log(err);
+      } 
+   });
 }
 
+// Function that appends a intern card to the html file
 function writeIntern(intern) {
    const data = `      <div class="card m-2" style="width: 18rem;">
          <div class="card-body">
@@ -212,18 +219,23 @@ function writeIntern(intern) {
             </ul>
          </div>
       </div>`
-   fs.appendFile('./dist/team.html', data);
-}
-
-function finishHTML() {
+   fs.appendFile('./dist/team.html', data, (err) => {
+      if (err) {
+         console.log(err);
+      }
+   });
    return;
 }
 
-// Runs the application
-function init() {
-   startHTML();
-   const team = makeTeam();
-   
+// Function that writes the bottom of the html file
+function finishHTML() {
+   fs.appendFile('./dist/team.html', `      </section>
+   </section>
+</body>`, (err) => {
+      if (err) {
+         console.log(err);
+      }
+   })
 }
 
 makeTeam();
