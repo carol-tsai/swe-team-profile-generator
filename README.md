@@ -19,7 +19,14 @@
     npm i
 
   ## Usage
-  include walk-through video
+  To use this application, clone a copy this repo, run the installation, and run 'node index' in the terminal. 
+
+  You will be prompted to enter information about your team members. Your team must include a manager, and you can add as many engineers and interns as you like.
+
+  When you are finished adding your team members' info, an html file will be generated in the 'dist' folder, containing a formatted team profile webpage.
+
+  Walkthrough video
+
 
   ## License
   MIT License
